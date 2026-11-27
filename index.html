@@ -6,6 +6,16 @@
   <title>鍋貼專賣店｜金黃酥脆，傳承手藝的極致美味</title>
   <meta name="description" content="極簡現代風鍋貼專賣店，台灣在地豬肉、每日現包、現點現煎。" />
 
+  <!-- PWA：可安裝到手機主畫面、離線可開啟 -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#4A2E1B" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="鍋貼專賣店" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
   <!-- Fonts: 無襯線內文 + 典雅標題 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -966,6 +976,14 @@
         new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }, { threshold: 0.1 }).observe(canvas);
       } else { start(); }
     })();
+  </script>
+  <script>
+    /* 註冊 Service Worker（僅 https 或 localhost 有效） */
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
+      });
+    }
   </script>
 </body>
 </html>
