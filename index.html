@@ -51,6 +51,14 @@
     }
     .fallback-wood { background: radial-gradient(circle at 30% 20%, #7a4a2a, #2E1B10); }
     .fallback-ember { background: linear-gradient(135deg, #F3B66B, #D9822B); }
+    /* 浮動預約按鈕 */
+    .fab-book { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 60; display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 1.25rem; border-radius: 9999px; background: #D9822B; color: #fff; font-weight: 700; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(46,27,16,.35); transition: transform .2s, background .2s; }
+    .fab-book:hover { background: #C06E1F; transform: translateY(-2px); }
+    .fab-book:focus-visible { outline: 3px solid #4A2E1B; outline-offset: 3px; }
+    .fab-book svg { width: 1.25rem; height: 1.25rem; }
+    @media (max-width: 480px) { .fab-book { right: 1rem; bottom: 1rem; padding: .85rem 1.1rem; } }
   </style>
 </head>
 
@@ -782,5 +790,9 @@
       }));
     });
   </script>
+  <!-- 浮動預約按鈕 -->
+  <a href="https://calendar.app.google/qQenP9iKDzTwReda9" target="_blank" rel="noopener noreferrer" class="fab-book" aria-label="線上預約">
+    <i data-lucide="calendar-check"></i><span>預約</span>
+  </a>
 </body>
 </html>
